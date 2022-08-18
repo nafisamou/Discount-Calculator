@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section class="mt-12 mx-auto text-center ">
+        <h1 class="text-3xl font-medium mb-5 ">Discount Calculator</h1>
+        <div class="bg-red-400 w-1/5 text-center mx-auto rounded-lg">
+            <input class="rounded-lg mt-8 ml-6 mx-1 p-1 " id="price" type="text" placeholder="Price"><span class="text-lg font-semibold">Price</span>
+        <br><br>
+        <input class="rounded-lg mb-5 mx-1 p-1" id="discount" type="text" placeholder="Discount"><span class="text-lg font-semibold mr-1">%</span>
+        <input class="rounded-lg mt-3  mx-1 p-1 ml-11" id="btn-cupon" type="text" placeholder="Set Your Cupon Code"><span class="text-lg font-semibold mr-1">Cupon</span>
+        <br><br>
+        <button id="get-price"  disabled class="text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white py-1 mx-2 p-2 rounded-lg">
+        Get total
+        </button>
+        <br><br>
+        <div class="mr-1">
+            <input class="rounded-lg mb-6 mr-3  mx-1 p-1" readonly id="total" type="text" placeholder="Total price">
+        </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('get-price').addEventListener('click',function(){
+        const price = Number(document.getElementById('price').value);
+        const discount = Number(document.getElementById('discount').value) / 100;
+         const totalValue = price - (price * discount);
+         document.getElementById("total").value = Math.abs(parseFloat(totalValue.toFixed(2))); 
+        
+        })
+    </script>
+    <script src="./js/dom.js"></script>
+    <!-- <script src="./js/dom1.js"></script> -->
+</body>
+</html>
